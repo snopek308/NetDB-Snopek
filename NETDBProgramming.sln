@@ -9,6 +9,8 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "CourseGPAArray", "CourseGPA
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "CourseGPAFile", "CourseGPAFile\CourseGPAFile.csproj", "{40C56DB4-CAD2-42EB-A519-561DCDE365E4}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "SleepData", "SleepData\SleepData.csproj", "{62015B44-7225-47D1-8C36-F6C8DD4C9BBB}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|x86 = Debug|x86
@@ -31,5 +33,9 @@ Global
 		{40C56DB4-CAD2-42EB-A519-561DCDE365E4}.Debug|x86.Build.0 = Debug|x86
 		{40C56DB4-CAD2-42EB-A519-561DCDE365E4}.Release|x86.ActiveCfg = Release|x86
 		{40C56DB4-CAD2-42EB-A519-561DCDE365E4}.Release|x86.Build.0 = Release|x86
+		{62015B44-7225-47D1-8C36-F6C8DD4C9BBB}.Debug|x86.ActiveCfg = Debug|x86
+		{62015B44-7225-47D1-8C36-F6C8DD4C9BBB}.Debug|x86.Build.0 = Debug|x86
+		{62015B44-7225-47D1-8C36-F6C8DD4C9BBB}.Release|x86.ActiveCfg = Release|x86
+		{62015B44-7225-47D1-8C36-F6C8DD4C9BBB}.Release|x86.Build.0 = Release|x86
 	EndGlobalSection
 EndGlobal
