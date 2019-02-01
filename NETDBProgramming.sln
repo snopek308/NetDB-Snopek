@@ -13,6 +13,8 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "SleepData", "SleepData\Slee
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "NLogExample", "NLogExample\NLogExample.csproj", "{45A0ACCC-5A06-4F5F-8FEC-8CC4E25D0239}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "MovieListing", "MovieListing\MovieListing.csproj", "{CC8E55D8-E1B6-4DD1-8354-7F1FFA794153}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|x86 = Debug|x86
@@ -43,5 +45,9 @@ Global
 		{45A0ACCC-5A06-4F5F-8FEC-8CC4E25D0239}.Debug|x86.Build.0 = Debug|x86
 		{45A0ACCC-5A06-4F5F-8FEC-8CC4E25D0239}.Release|x86.ActiveCfg = Release|x86
 		{45A0ACCC-5A06-4F5F-8FEC-8CC4E25D0239}.Release|x86.Build.0 = Release|x86
+		{CC8E55D8-E1B6-4DD1-8354-7F1FFA794153}.Debug|x86.ActiveCfg = Debug|x86
+		{CC8E55D8-E1B6-4DD1-8354-7F1FFA794153}.Debug|x86.Build.0 = Debug|x86
+		{CC8E55D8-E1B6-4DD1-8354-7F1FFA794153}.Release|x86.ActiveCfg = Release|x86
+		{CC8E55D8-E1B6-4DD1-8354-7F1FFA794153}.Release|x86.Build.0 = Release|x86
 	EndGlobalSection
 EndGlobal
