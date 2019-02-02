@@ -8,18 +8,13 @@ namespace MovieLibrary
     {
         // create a class level instance of logger (can be used in methods other than Main)
         private static NLog.Logger logger = NLog.LogManager.GetCurrentClassLogger();
+
         public static void Main(string[] args)
         {
+            string file = "../../movies.csv";
             logger.Info("Program started");
 
-            Movie movie = new Movie
-            {
-                movieId = 1,
-                title = "Jeff's Killer Movie (2019)",
-                genres = new List<string> { "Action", "Romance", "Comedy" }
-            };
-
-            Console.WriteLine(movie.Display());
+            MovieFile movieFile = new MovieFile(file);
 
             logger.Info("Program ended");
         }
