@@ -28,6 +28,20 @@ namespace MovieLibrary
                 if (choice == "1")
                 {
                     // Add movie
+                    Movie movie = new Movie();
+                    // ask user to input movie title
+                    Console.WriteLine("Enter movie title");
+                    // input title
+                    movie.title = Console.ReadLine();
+                    // verify title is unique
+                    if (movieFile.isUniqueTitle(movie.title)){
+                        Console.WriteLine("Movie title is unique\n");
+                    }
+                    else
+                    {
+                        Console.WriteLine("Movie title already exists\n");
+                    }
+
                 } else if (choice == "2")
                 {
                     // Display All Movies
