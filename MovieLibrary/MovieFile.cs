@@ -70,5 +70,16 @@ namespace MovieLibrary
                 logger.Error(ex.Message);
             }
         }
+
+        // public method
+        public bool isUniqueTitle(string title)
+        {
+            if (Movies.ConvertAll(m => m.title.ToLower()).Contains(title.ToLower()))
+            {
+                logger.Info("Duplicate movie title {Title}", title);
+                return false;
+            }
+            return true;
+        }
     }
 }
