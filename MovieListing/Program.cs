@@ -146,6 +146,8 @@ namespace MovieListing
                             MovieIds.Add(movieId);
                             MovieTitles.Add(movieTitle);
                             MovieGenres.Add(genresString);
+                            // log transaction
+                            logger.Info("Movie id {Id} added", movieId);
                         }
                     }
                     else if (choice == "2")
