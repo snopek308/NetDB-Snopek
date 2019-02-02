@@ -84,6 +84,8 @@ namespace MovieListing
                                 MovieGenres.Add(line.Replace("|", ", "));
                             }
                         }
+                        // close file when done
+                        sr.Close();
                     }
                     catch (Exception ex)
                     {
@@ -135,7 +137,15 @@ namespace MovieListing
                             // if there is a comma(,) in the title, wrap it in quotes
                             movieTitle = movieTitle.IndexOf(',') != -1 ? $"\"{movieTitle}\"" : movieTitle;
                             // display movie id, title, genres
-                            Console.WriteLine($"{movieId},{movieTitle},{genresString}");
+                            //Console.WriteLine($"{movieId},{movieTitle},{genresString}");
+                            // create file from data
+                            StreamWriter sw = new StreamWriter(file, true);
+                            sw.WriteLine($"{movieId},{movieTitle},{genresString}");
+                            sw.Close();
+                            // add movie details to Lists
+                            MovieIds.Add(movieId);
+                            MovieTitles.Add(movieTitle);
+                            MovieGenres.Add(genresString);
                         }
                     }
                     else if (choice == "2")
