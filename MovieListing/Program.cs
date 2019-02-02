@@ -1,6 +1,7 @@
 ﻿using System;
 using System.IO;
 using NLog;
+using System.Collections.Generic;
 
 namespace MovieListing
 {
@@ -34,6 +35,12 @@ namespace MovieListing
                     // input selection
                     choice = Console.ReadLine();
                     logger.Info("User choice: {Choice}", choice);
+
+                    // create parallel lists of movie details
+                    // lists must be used since we do not know number of lines of data
+                    List<UInt64> MovieIds = new List<UInt64>();
+                    List<string> MovieTitles = new List<string>();
+                    List<string> MovieGenres = new List<string>();
 
                     if (choice == "1")
                     {
