@@ -88,8 +88,10 @@ namespace MovieLibrary
             {
                 // first generate movie id
                 movie.movieId = Movies.Max(m => m.movieId) + 1;
+                // if title contains a comma, wrap it in quotes
+                string title = movie.title.IndexOf(',') != -1 ? $"\"{movie.title}\"" : movie.title;
                 StreamWriter sw = new StreamWriter(filePath, true);
-                sw.WriteLine($"{movie.movieId},{movie.title},{string.Join("|", movie.genres)}");
+                sw.WriteLine($"{movie.movieId},{title},{string.Join("|", movie.genres)}");
                 sw.Close();
                 // add movie details to Lists
                 Movies.Add(movie);
