@@ -17,6 +17,8 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "MovieListing", "MovieListin
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "MovieLibrary", "MovieLibrary\MovieLibrary.csproj", "{2F76AD77-4EF2-4F5F-AD32-9A0DE36C4C66}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "MediaLibrary", "MediaLibrary\MediaLibrary.csproj", "{1E8341D5-38C8-4656-A750-A01B8F004FFF}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|x86 = Debug|x86
@@ -55,5 +57,9 @@ Global
 		{2F76AD77-4EF2-4F5F-AD32-9A0DE36C4C66}.Debug|x86.Build.0 = Debug|x86
 		{2F76AD77-4EF2-4F5F-AD32-9A0DE36C4C66}.Release|x86.ActiveCfg = Release|x86
 		{2F76AD77-4EF2-4F5F-AD32-9A0DE36C4C66}.Release|x86.Build.0 = Release|x86
+		{1E8341D5-38C8-4656-A750-A01B8F004FFF}.Debug|x86.ActiveCfg = Debug|x86
+		{1E8341D5-38C8-4656-A750-A01B8F004FFF}.Debug|x86.Build.0 = Debug|x86
+		{1E8341D5-38C8-4656-A750-A01B8F004FFF}.Release|x86.ActiveCfg = Release|x86
+		{1E8341D5-38C8-4656-A750-A01B8F004FFF}.Release|x86.Build.0 = Release|x86
 	EndGlobalSection
 EndGlobal
