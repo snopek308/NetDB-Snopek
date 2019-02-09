@@ -12,6 +12,15 @@ namespace MediaLibrary
         {
             logger.Info("Program started");
 
+            Movie movie = new Movie
+            {
+                mediaId = 123,
+                title = "Greatest Movie Ever, The (2019)",
+                genres = { "Comedy", "Romance" }
+            };
+
+            Console.WriteLine(movie.Display());
+
             logger.Info("Program ended");
         }
     }
