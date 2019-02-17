@@ -14,8 +14,10 @@ namespace MediaLibrary
 
             string scrubbedFile = FileScrubber.ScrubMovies("../../movies.csv");
             string albumFileName = "../../albums.csv";
+            string bookFileName = "../../books.csv";
             MovieFile movieFile = new MovieFile(scrubbedFile);
             AlbumFile albumFile = new AlbumFile(albumFileName);
+            BookFile bookFile = new BookFile(bookFileName);
 
             string choice = "";
             do
@@ -142,7 +144,66 @@ namespace MediaLibrary
                         Console.WriteLine(a.Display());
                     }
                 }
-            } while (choice == "1" || choice == "2" || choice == "3" || choice == "4");
+                else if (choice == "5")
+                {
+                    // Add Book
+                    Book book = new Book();
+                    // ask user to input book title
+                    Console.WriteLine("Enter book title");
+                    // input title
+                    book.title = Console.ReadLine();
+                    // verify title is unique
+                    if (bookFile.isUniqueTitle(book.title))
+                    {
+                        // input genres
+                        string input;
+                        do
+                        {
+                            // ask user to enter genre
+                            Console.WriteLine("Enter genre (or done to quit)");
+                            // input genre
+                            input = Console.ReadLine();
+                            // if user enters "done"
+                            // or does not enter a genre do not add it to list
+                            if (input != "done" && input.Length > 0)
+                            {
+                                book.genres.Add(input);
+                            }
+                        } while (input != "done");
+                        // specify if no genres are entered
+                        if (book.genres.Count == 0)
+                        {
+                            book.genres.Add("(no genres listed)");
+                        }
+                        // ask user to enter author
+                        Console.WriteLine("Enter book author");
+                        input = Console.ReadLine();
+                        book.author = input.Length == 0 ? "unassigned" : input;
+                        // ask user to enter publisher
+                        Console.WriteLine("Enter publisher");
+                        input = Console.ReadLine();
+                        book.publisher = input.Length == 0 ? "unassigned" : input;
+                        // ask user to enter number of pages
+                        Console.WriteLine("Enter number of pages");
+                        input = Console.ReadLine();
+                        book.pageCount = input.Length == 0 ? (UInt16)0 : UInt16.Parse(input);
+                        // add book
+                        bookFile.AddBook(book);
+                    }
+                    else
+                    {
+                        Console.WriteLine("Book title already exists\n");
+                    }
+                }
+                else if (choice == "6")
+                {
+                    // Display All Books
+                    foreach (Book b in bookFile.Books)
+                    {
+                        Console.WriteLine(b.Display());
+                    }
+                }
+            } while (choice == "1" || choice == "2" || choice == "3" || choice == "4" || choice == "5" || choice == "6");
 
             logger.Info("Program ended");
         }

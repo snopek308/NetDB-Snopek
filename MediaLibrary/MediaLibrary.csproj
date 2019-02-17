@@ -50,6 +50,7 @@
     <Compile Include="FileScrubber.cs" />
     <Compile Include="MovieFile.cs" />
     <Compile Include="AlbumFile.cs" />
+    <Compile Include="BookFile.cs" />
   </ItemGroup>
   <ItemGroup>
     <None Include="movies.csv" />
