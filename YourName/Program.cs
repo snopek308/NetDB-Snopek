@@ -15,4 +15,12 @@ namespace YourName
             Console.WriteLine("Hello, {0}", name);
         }
     }
+
+    public class MathHelper
+    {
+        public int AddNumbers(int x, int y)
+        {
+            return x + y;
+        }
+    }
 }
