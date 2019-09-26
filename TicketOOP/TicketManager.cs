@@ -52,7 +52,12 @@ namespace TicketOOP
 
         private void AddTicketToFile(Ticket ticket)
         {
-            if (!IsTicketInFile(ticket)) _ticketFile.WriteFile(ticket);
+            if (!IsTicketInFile(ticket))
+                _ticketFile.WriteFile(ticket);
+            else
+            {
+                Console.WriteLine("* Error: Entry already exists");
+            }
         }
 
         private bool IsTicketInFile(Ticket ticket)
