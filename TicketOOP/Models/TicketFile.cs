@@ -8,7 +8,7 @@ namespace TicketOOP.Models
     public class TicketFile
     {
         public List<Ticket> Contents { get; }
-        private readonly string _filename = Path.Combine(Environment.CurrentDirectory, "tickets.txt");
+        private readonly string _filename = Path.Combine(Environment.CurrentDirectory, "Files", "tickets.txt");
 
         public TicketFile()
         {
