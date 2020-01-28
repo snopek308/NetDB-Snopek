@@ -26,10 +26,11 @@ namespace CourseGPAFile
                         int gradePoints = 0;
                         int count = 0;
                         // read data from file
-                        StreamReader sr = new StreamReader(file);
-                        while (!sr.EndOfStream)
+                        StreamReader gradeFile = new StreamReader(file);
+
+                        while (!gradeFile.EndOfStream)
                         {
-                            string line = sr.ReadLine();
+                            string line = gradeFile.ReadLine();
                             // convert string to array
                             string[] arr = line.Split('|');
                             // display array data
