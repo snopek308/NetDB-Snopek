@@ -13,6 +13,14 @@ namespace homeworkOne
         {
             string file = "Tickets.csv";
             string choice;
+            int ticketID = 0;
+            string summary;
+            string status;
+            string priority;
+            string submmitter;
+            string assigned;
+            string watching;
+
 
             // ask user a question
             Console.WriteLine("1) Read data from file.");
@@ -35,19 +43,27 @@ namespace homeworkOne
                         string[] arr = line.Split(',');
                         // display array data
                         Console.WriteLine("TicketID, Summary, Status, Priority, Submitter, Assigned, Watching");
-                        Console.WriteLine(arr[0], arr[1], arr[2], arr[3], arr[4], arr[5], arr[6]);
+                        Console.WriteLine(arr[0] + ", " + arr[1] + ", " + arr[2] + ", " + arr[3] + ", " + arr[4] + ", " + arr[5] + ", " + arr[6]);
                     }
                 }
                 else
                 {
                     Console.WriteLine("File does not exist");
                 }
+            }
+
+            else if (choice == "2")
+            {
+                // create file from data
+                StreamWriter newTicket = new StreamWriter(file);
+                Console.WriteLine("Ticket ID Number followed by a comma:");
+                newTicket.ticketID = Convert.ToInt32(Console.ReadLine());
+
+                newTicket.Close();
+            }
 
 
             }
         }
     }
-
-
-}
 
