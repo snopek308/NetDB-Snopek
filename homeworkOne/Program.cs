@@ -21,49 +21,94 @@ namespace homeworkOne
             string assigned;
             string watching;
 
-
-            // ask user a question
-            Console.WriteLine("1) Read data from file.");
-            Console.WriteLine("2) Create file from data.");
-            Console.WriteLine("Enter any other key to exit.");
-            // input response
-            choice = Console.ReadLine();
-
-            if (choice == "1")
+            do
             {
+                // ask user a question
+                Console.WriteLine("1) Read data from file.");
+                Console.WriteLine("2) Create file from data.");
+                Console.WriteLine("Enter any other key to exit.");
+                // input response
+                choice = Console.ReadLine();
 
-                if (File.Exists(file))
+                if (choice == "1")
                 {
-                    StreamReader ticket = new StreamReader(file);
-                    ticket.ReadLine();
-                    while (!ticket.EndOfStream)
+
+                    if (File.Exists(file))
                     {
-                        string line = ticket.ReadLine();
-                        // convert string to array
-                        string[] arr = line.Split(',');
-                        // display array data
-                        Console.WriteLine("TicketID, Summary, Status, Priority, Submitter, Assigned, Watching");
-                        Console.WriteLine(arr[0] + ", " + arr[1] + ", " + arr[2] + ", " + arr[3] + ", " + arr[4] + ", " + arr[5] + ", " + arr[6]);
+                        StreamReader ticket = new StreamReader(file);
+                        ticket.ReadLine();
+                        while (!ticket.EndOfStream)
+                        {
+                            string line = ticket.ReadLine();
+                            // convert string to array
+                            string[] arr = line.Split(',');
+                            // display array data
+                            Console.WriteLine("TicketID, Summary, Status, Priority, Submitter, Assigned, Watching");
+                            Console.WriteLine(arr[0] + ", " + arr[1] + ", " + arr[2] + ", " + arr[3] + ", " + arr[4] + ", " + arr[5] + ", " + arr[6]);
+                            Console.WriteLine("\n");
+                        }
+                    }
+                    else
+                    {
+                        Console.WriteLine("File does not exist");
                     }
                 }
-                else
+
+                else if (choice == "2")
                 {
-                    Console.WriteLine("File does not exist");
+
+                    string response;  // to capture user responses
+
+                    do
+                    {
+                        // ask user if they wish to enter a new ticket
+                        Console.WriteLine("Enter a ticket (Y/N)?");
+                        // capture user response
+                        response = Console.ReadLine().ToUpper();
+                        // if the response is anything other than "Y", stop asking
+                        
+                        if (response != "Y") { break; }
+
+                        // assign a ticketID
+                        ticketID = ticketID + 2;
+                        Console.WriteLine($"Creating a new ticket under Ticket ID : {ticketID}");
+
+                        // prompt for ticket summary and save ticket summary to a variable
+                        Console.WriteLine("Enter a new ticket summary: ");
+                        summary = Console.ReadLine();
+
+                        // prompt for ticket status and savingh it to a variable
+                        Console.WriteLine("Enter the ticket status: ");
+                        status = Console.ReadLine();
+
+                        // prompt for ticket priority and saving it to a variable
+                        Console.WriteLine("Enter the ticket priority: ");
+                        priority = Console.ReadLine();
+
+                        // prompt for submittedBy, and saved to a variable
+                        Console.WriteLine("Enter ticket submitter's full name: ");
+                        submmitter = Console.ReadLine();
+
+                        // prompt for assigned and saved to a variable
+                        Console.WriteLine("Enter full name ticket is to be assigned to: ");
+                        assigned = Console.ReadLine();
+
+                        // prompt for watching and saved to a variable
+                        Console.WriteLine("Enter full name of person watching the ticket: ");
+                        watching = Console.ReadLine();
+
+                        StreamWriter sw = new StreamWriter(file, append: true);
+
+                        sw.WriteLine("{0},{1},{2},{3},{4},{5},{6}",
+                            ticketID, summary, status, priority, submmitter, assigned, watching);
+
+                        sw.Close();
+
+                    } while (response != "N"); // do while loop for option two, continue adding records
                 }
-            }
 
-            else if (choice == "2")
-            {
-                // create file from data
-                StreamWriter newTicket = new StreamWriter(file);
-                Console.WriteLine("Ticket ID Number followed by a comma:");
-                newTicket.ticketID = Convert.ToInt32(Console.ReadLine());
-
-                newTicket.Close();
-            }
-
-
-            }
+            } while (choice == "1" || choice == "2");
         }
     }
 
+}
