@@ -13,7 +13,7 @@ namespace homeworkOne
         {
             string file = "Tickets.csv";
             string choice;
-            int ticketID = 0;
+            int ticketID = 1;
             string summary;
             string status;
             string priority;
@@ -69,8 +69,16 @@ namespace homeworkOne
                         
                         if (response != "Y") { break; }
 
+                        // Tried to use the stream file length to determine next ticket
+                        //StreamReader ticket = new StreamReader(file);
+                        //ticket.ReadLine();
+                        //while (!ticket.EndOfStream)
+                        //{
+                        //    ticketID += 1;
+                        //}
                         // assign a ticketID
-                        ticketID = ticketID + 2;
+
+                        ticketID += 1;
                         Console.WriteLine($"Creating a new ticket under Ticket ID : {ticketID}");
 
                         // prompt for ticket summary and save ticket summary to a variable
@@ -98,10 +106,8 @@ namespace homeworkOne
                         watching = Console.ReadLine();
 
                         StreamWriter sw = new StreamWriter(file, append: true);
-
                         sw.WriteLine("{0},{1},{2},{3},{4},{5},{6}",
                             ticketID, summary, status, priority, submmitter, assigned, watching);
-
                         sw.Close();
 
                     } while (response != "N"); // do while loop for option two, continue adding records
