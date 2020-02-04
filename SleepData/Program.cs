@@ -15,7 +15,9 @@ namespace SleepData
             string resp = Console.ReadLine();
 
             // specify path for data file
-            string file = "/users/jgrissom/downloads/data.txt";
+            //string file = "/users/jgrissom/downloads/data.txt"; <This is what it was before
+            //makes the file
+            string file = AppDomain.CurrentDomain.BaseDirectory + "data.txt";
 
             if (resp == "1")
             {
@@ -58,7 +60,26 @@ namespace SleepData
             }
             else if (resp == "2")
             {
-                // TODO: parse data file
+                using (StreamReader sw = new StreamReader("data.txt"))
+                    while (!sw.EndOfStream)
+                {
+                        String dateResult;
+                        string dataDate = sw.ReadLine();
+
+                        //split the dates and the numbers, makes the arr[0] into a string and then parses it to a DateTime
+                        string[] arrOne = dataDate.Split(',');
+                        dateResult = arrOne[0];
+                        DateTime dateResultParse = DateTime.Parse(dateResult);
+                        
+                        //splits the numbers
+                        string[] arrTwo = dataDate.Split(',', '|');
+
+
+                        Console.WriteLine("Week of " + dateResultParse.ToString("MMM, dd, yyyy"));
+                        Console.WriteLine("Su Mo Tu We Th Fr Sa");
+                        Console.WriteLine("-- -- -- -- -- -- --");
+                        Console.WriteLine(arrTwo[1] + " " + arrTwo[2] + " " + arrTwo[3] + " " + arrTwo[4] + " " + arrTwo[5] + " " + arrTwo[6] + " " + arrTwo[7]);
+                    }
 
             }
         }
