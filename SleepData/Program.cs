@@ -78,7 +78,7 @@ namespace SleepData
                         Console.WriteLine("Week of " + dateResultParse.ToString("MMM, dd, yyyy"));
                         Console.WriteLine("Su Mo Tu We Th Fr Sa");
                         Console.WriteLine("-- -- -- -- -- -- --");
-                        Console.WriteLine("|{0,4}|{1, 6}|", arrTwo[1] + " " + arrTwo[2] + " " + arrTwo[3] + " " + arrTwo[4] + " " + arrTwo[5] + " " + arrTwo[6] + " " + arrTwo[7]);
+                        Console.WriteLine("{0, 6}", arrTwo[1] + " " + arrTwo[2] + " " + arrTwo[3] + " " + arrTwo[4] + " " + arrTwo[5] + " " + arrTwo[6] + " " + arrTwo[7]);
                     }
 
             }
