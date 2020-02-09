@@ -16,16 +16,17 @@ namespace MovieProgram
             logger.Info("Program started");
 
             // path to movie data file
-            string file = "./movie.csv";
+            string file = "../../data/movies.csv";
 
-            // make sure movie file exists
+            // checking to see if the file exists for the program to run
             if (!File.Exists(file))
             {
                 logger.Error("File does not exist: {File}", file);
             }
+            //If there is a file, the program will run below
             else
             {
-                string choice;
+                string userChoice;
                 do
                 {
                     // display choices to user
@@ -34,11 +35,13 @@ namespace MovieProgram
                     Console.WriteLine("Enter to quit");
 
                     // input selection
-                    choice = Console.ReadLine();
-                    logger.Info("User choice: {Choice}", choice);
+                    userChoice = Console.ReadLine();
+                    logger.Info("User choice: {Choice}", userChoice);
 
                     // create parallel lists of movie details
                     // lists must be used since we do not know number of lines of data
+                    //making three different Lists
+                    //defining a strict type within the <>
                     List<UInt64> MovieIds = new List<UInt64>();
                     List<string> MovieTitles = new List<string>();
                     List<string> MovieGenres = new List<string>();
@@ -93,7 +96,7 @@ namespace MovieProgram
                     }
                     logger.Info("Movies in file {Count}", MovieIds.Count);
 
-                    if (choice == "1")
+                    if (userChoice == "1")
                     {
                         // Add Movie
                         // ask user to input movie title
@@ -150,7 +153,7 @@ namespace MovieProgram
                             logger.Info("Movie id {Id} added", movieId);
                         }
                     }
-                    else if (choice == "2")
+                    else if (userChoice == "2")
                     {
                         // Display All Movies
                         // loop thru Movie Lists
@@ -163,7 +166,7 @@ namespace MovieProgram
                             Console.WriteLine();
                         }
                     }
-                } while (choice == "1" || choice == "2");
+                } while (userChoice == "1" || userChoice == "2");
             }
 
             logger.Info("Program ended");
