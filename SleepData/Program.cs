@@ -44,11 +44,28 @@ namespace SleepData
                 while (dataDate < dataEndDate)
                 {
                     // 7 days in a week
-                    int[] hours = new int[7];
+                    int[] hours = new int[9];
+                    int total = 0;
+                    int average = 0;
                     for (int i = 0; i < hours.Length; i++)
                     {
+                        var x = rnd.Next(4, 13);
                         // generate random number of hours slept between 4-12 (inclusive)
-                        hours[i] = rnd.Next(4, 13);
+                        if (i < 7)
+                        {
+                            hours[i] = x;
+                            total += x;
+                        }
+
+                        if (i == 8)
+                        {
+                            hours[i] = total;
+                        }
+                        if (i == 9)
+                        {
+                            hours[i] = total / 7;
+                        }
+                        
                     }
                     // M/d/yyyy,#|#|#|#|#|#|#
                     //Console.WriteLine($"{dataDate:M/d/yy},{string.Join("|", hours)}");
@@ -76,9 +93,9 @@ namespace SleepData
 
 
                         Console.WriteLine("Week of " + dateResultParse.ToString("MMM, dd, yyyy"));
-                        Console.WriteLine($"{"Su",3}{"Mo",3}{"Tu",3}{"We",3}{"Th",3}{"Fr",3}{"Sa",3}");
-                        Console.WriteLine($"{"--",3}{"--",3}{"--",3}{"--",3}{"--",3}{"--",3}{"--",3}"); // {"---",4}{"---",4}");
-                        Console.WriteLine($"{arrTwo[1],3}{arrTwo[2],3}{arrTwo[3],3}{arrTwo[4],3}{arrTwo[5],3}{arrTwo[6],3}{arrTwo[7],3}");
+                        Console.WriteLine($"{"Su",3}{"Mo",3}{"Tu",3}{"We",3}{"Th",3}{"Fr",3}{"Sa",3}{"Tot", 4}{"Avg", 4}");
+                        Console.WriteLine($"{"--",3}{"--",3}{"--",3}{"--",3}{"--",3}{"--",3}{"--",3}{"--",4}{"--",4}"); // {"---",4}{"---",4}");
+                        Console.WriteLine($"{arrTwo[1],3}{arrTwo[2],3}{arrTwo[3],3}{arrTwo[4],3}{arrTwo[5],3}{arrTwo[6],3}{arrTwo[7],3}{arrTwo[8], 4}{arrTwo[9], 4}");
                     }
 
             }
