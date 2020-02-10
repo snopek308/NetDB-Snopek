@@ -29,8 +29,8 @@ namespace MovieProgram
                 string userChoice;
                 do
                 {
-                    // display choices to user
-                    Console.WriteLine("1) Add Movie");
+                    // display choices to the user
+                    Console.WriteLine("1) Add a Movie to the List");
                     Console.WriteLine("2) Display All Movies");
                     Console.WriteLine("Enter to quit");
 
@@ -48,6 +48,7 @@ namespace MovieProgram
                     // to populate the lists with data, read from the data file
                     try
                     {
+                        //set up the file for the file reader
                         StreamReader sr = new StreamReader(file);
                         // first line contains column headers
                         sr.ReadLine();
@@ -73,7 +74,7 @@ namespace MovieProgram
                             else
                             {
                                 // quote = comma in movie title
-                                // extract the movieId
+                                // extracts the movieId
                                 MovieIds.Add(UInt64.Parse(line.Substring(0, idx - 1)));
                                 // remove movieId and first quote from string
                                 line = line.Substring(idx + 1);
@@ -100,14 +101,14 @@ namespace MovieProgram
                     {
                         // Add Movie
                         // ask user to input movie title
-                        Console.WriteLine("Enter the movie title");
-                        // input title
+                        Console.WriteLine("Enter a movie title");
+                        // input the movie title
                         string movieTitle = Console.ReadLine();
                         // check for duplicate title
                         List<string> LowerCaseMovieTitles = MovieTitles.ConvertAll(t => t.ToLower());
                         if (LowerCaseMovieTitles.Contains(movieTitle.ToLower()))
                         {
-                            Console.WriteLine("That movie has already been entered");
+                            Console.WriteLine("Unfortunately your movie title has already been entered.");
                             logger.Info("Duplicate movie title {Title}", movieTitle);
                         }
                         else
