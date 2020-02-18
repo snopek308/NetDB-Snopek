@@ -23,12 +23,12 @@ namespace homeworkOne
 
         public void userInput()
         {
-            // ask user a question
-            Console.WriteLine("1) Read data from file.");
-            Console.WriteLine("2) Create file from data.");
-            Console.WriteLine("Enter any other key to exit.");
-            // input response
-            choice = Console.ReadLine();
+            //// ask user a question
+            //Console.WriteLine("1) Read data from file.");
+            //Console.WriteLine("2) Create file from data.");
+            //Console.WriteLine("Enter any other key to exit.");
+            //// input response
+            //choice = Console.ReadLine();
         //}
 
         //public void process()
@@ -36,6 +36,12 @@ namespace homeworkOne
 
             do
             {
+                // ask user a question
+                Console.WriteLine("1) Read data from file.");
+                Console.WriteLine("2) Create file from data.");
+                Console.WriteLine("Enter any other key to exit.");
+                // input response
+                choice = Console.ReadLine();
                 if (choice == "1")
                 {
 
