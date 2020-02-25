@@ -2,7 +2,7 @@
 using System.IO;
 using System.Linq;
 
-namespace MediaLibrary
+namespace MediaLibrary.FileManager
 {
     public static class FileScrubber
     {

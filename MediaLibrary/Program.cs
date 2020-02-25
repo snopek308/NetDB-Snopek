@@ -1,5 +1,7 @@
 ﻿using System;
 using NLog;
+using MediaLibrary.FileManager;
+using MediaLibrary.Models;
 
 namespace MediaLibrary
 {
@@ -15,6 +17,8 @@ namespace MediaLibrary
             string scrubbedFile = FileScrubber.ScrubMovies("../../movies.csv");
             string albumFileName = "../../albums.csv";
             string bookFileName = "../../books.csv";
+
+            //creating new objects (Created new "types")
             MovieFile movieFile = new MovieFile(scrubbedFile);
             AlbumFile albumFile = new AlbumFile(albumFileName);
             BookFile bookFile = new BookFile(bookFileName);
